@@ -1,0 +1,13 @@
+
+<div class="container text-center" >
+    <div class="row align-items-center">
+        <p class="h1">Form Creator</p>
+    </div>
+    <app-modal class=""></app-modal>
+</div>
+<form class="d-flex flex-column  justify-content-center m-4">
+    <div *ngFor="let form of formSpecial" class="mb-3">
+        <label for={{getID(form.id)}} class="form-label" >{{form.name}}</label>
+        <input class="form-control  border border-primary" type={{form.type}} id={{getID(form.id)}}>
+    </div>
+</form>

@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# formCreator
+
+Para crear un nuevo modulo versiones nuevas.
+
+ng generate component messages --module app.core.module
+
+# data
+
+https://docs.angular.lat/tutorial/toh-pt5
+
+https://www.tutorialesprogramacionya.com/angulardevya/detalleconcepto.php?punto=65&codigo=65&inicio=60
