@@ -53,11 +53,9 @@ export class ModalComponent {
   constructor(){
 
   }
-  onChange(i:any){
-    console.log('Tocado');
-  }  
+   
   mdSelection(){
-    /* this.selectValue = this.dropdown?.nativeElement.value; */
-      console.log("Pulsado",this);
+    this.selectValue = this.dropdown?.nativeElement.value; 
+      console.log("Pulsado",this.selectValue);
   }
 }

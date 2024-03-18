@@ -11,7 +11,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <select  #dropdown class="form-select form-select-lg mb-3" aria-label="Large select example" [(ngModel)]="mdSelection" >
+            <select  #dropdown class="form-select form-select-lg mb-3" aria-label="Large select example" [(ngModel)]="selectValue" >
                 <option *ngFor="let t of type" [value]=t.value >{{t.name}}</option>
             </select>
         </div>
