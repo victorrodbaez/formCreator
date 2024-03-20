@@ -1,6 +1,11 @@
-import { FormSpecial } from "../details-form/interface/FORMDATA";
+//import { FormSpecial } from "../interface/FORMDATA";
 
-export const FORMS: FormSpecial[] = [
+export const FORMS = [
+  { id:1, name: 'Boton', values:'',type:'button' },
+  { id:2, name: 'Boton', values:'',type:'button' }
+]
+
+/* export const FORMS_: FormSpecial[] = [
   { id:1, name: 'Boton', values:'',type:'button' },
   { id:2, name: 'Checkbox', values:'',type:'checkbox' },
   { id:3, name: 'Color', values:'',type:'color' },
@@ -23,4 +28,4 @@ export const FORMS: FormSpecial[] = [
   { id:19, name: 'Tiempo', values:'',type:'time' },
   { id:20, name: 'Ruta', values:'',type:'url' },
   { id:21, name: 'Semana', values:'',type:'week'}
-];
+]; */

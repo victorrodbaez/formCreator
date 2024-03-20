@@ -1,14 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FORMS } from "../mocks/datas";
+import { FormServiceService } from "../services/form-service.service";
+/* import { FORMS } from "../mocks/datas"; */
 import {
   NgIf,
   NgFor,
   UpperCasePipe,
 } from '@angular/common';
-import {FormSpecial} from './interface/FORMDATA';
+import {FormSpecial} from '../interface/FORMDATA'; 
 import { Console } from 'console';
 import { ModalComponent } from "./modal/modal.component";
-
+import { LateralSidebarComponent } from "./lateral-sidebar/lateral-sidebar.component";
 
 @Component({
     selector: 'app-details-form',
@@ -19,16 +20,17 @@ import { ModalComponent } from "./modal/modal.component";
         NgIf,
         NgFor,
         UpperCasePipe,
-        ModalComponent
+        ModalComponent,
+        LateralSidebarComponent
     ]
 })
 
 export class DetailsFormComponent implements OnInit {
-  console = console.log("Pepe")
-  formSpecial = FORMS;
-  selectedForm?: FormSpecial;
-  constructor() { 
+  console = console.log("Pepe");
+  forms: FormSpecial[] = [];
+  selectedForm: FormSpecial | undefined;
 
+  constructor(private FormServiceService: FormServiceService) { 
   }
   getID(id:number){
     let value = 'input_'+id;
@@ -38,7 +40,22 @@ export class DetailsFormComponent implements OnInit {
     this.selectedForm = fS;
     
   }
+  addForms(elem?:FormSpecial){
+    let id_ = 0;
+    this.forms.forEach(e=>{
+      if(e.id>=id_){
+        id_ = e.id + 1;
+      }
+    })
+    elem = { id:id_, name: 'Boton', values:'',type:'button' };
+    this.forms.push(elem)
+    console.log(this.forms);
+  }
+  getForms(): void {
+    this.FormServiceService.getForms()
+        .subscribe(i => this.forms = i);
+  }
   ngOnInit() {
-
+    this.getForms();
   }
 }
