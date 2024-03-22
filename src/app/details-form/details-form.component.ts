@@ -40,16 +40,20 @@ export class DetailsFormComponent implements OnInit {
     this.selectedForm = fS;
     
   }
-  addForms(elem?:FormSpecial){
-    let id_ = 0;
-    this.forms.forEach(e=>{
-      if(e.id>=id_){
-        id_ = e.id + 1;
-      }
-    })
-    elem = { id:id_, name: 'Boton', values:'',type:'button' };
-    this.forms.push(elem)
-    console.log(this.forms);
+  addForms(obj?:FormSpecial){
+    if(obj === null){
+      return console.log("Error");
+    } else{
+      let id_ = 0;
+       this.forms.forEach(e=>{if(e.id>=id_){id_ = e.id + 1;}})
+      let elem = { id:id_, 
+        name: obj === undefined ? '' : obj.name, 
+        values: obj=== undefined ? '' : obj.values, 
+        type:obj=== undefined ? '' : obj.type };
+      this.forms.push(elem)
+      console.log(this.forms);
+
+    }
   }
   getForms(): void {
     this.FormServiceService.getForms()
@@ -57,5 +61,10 @@ export class DetailsFormComponent implements OnInit {
   }
   ngOnInit() {
     this.getForms();
+  }
+  sendForm(event:any){
+    console.log("elemento",event);
+    this.addForms(event)
+    //return event;
   }
 }

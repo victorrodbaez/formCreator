@@ -3,4 +3,5 @@ export interface FormSpecial {
     name: string;
     values:string;
     type:string;
+    order?:number;
   }
